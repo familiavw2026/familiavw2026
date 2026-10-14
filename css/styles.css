@@ -875,6 +875,11 @@ button {
   gap: 2.5rem;
 }
 
+/* Mantém o espaçamento do texto; a imagem dos personagens encosta na linha */
+.footer-grid > div:first-child {
+  padding-bottom: 2rem;
+}
+
 .footer-phone {
   display: inline-block;
   font-family: var(--font-display);
@@ -919,7 +924,7 @@ button {
   text-align: center;
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.7);
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 /* ==========================================================================
