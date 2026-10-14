@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-language" content="pt-BR">
+  <title>Onde atendemos | Família VW Brinquedos — São Carlos e região</title>
+  <meta name="description" content="Locação de brinquedos em São Carlos, Ibaté, Araraquara, Rio Claro e outras cidades da região. Cada evento é analisado conforme logística e disponibilidade.">
+  <meta name="author" content="Família VW Brinquedos">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="assets/logo-familia-vw.png" alt="Família VW Brinquedos" class="logo-img">
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="index.html#inicio" class="nav-link">Início</a>
+        <a href="brinquedos.html" class="nav-link">Brinquedos</a>
+        <a href="index.html#quem-somos" class="nav-link">Quem somos</a>
+        <a href="index.html#como-funciona" class="nav-link">Como funciona</a>
+        <a href="onde-atendemos.html" class="nav-link active">Onde atendemos</a>
+        <a href="index.html#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="btn-menu-mobile" class="btn-menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <nav id="nav-mobile" class="nav-mobile">
+      <ul class="nav-mobile-list">
+        <li><a href="index.html#inicio" class="nav-mobile-link">Início</a></li>
+        <li><a href="brinquedos.html" class="nav-mobile-link">Brinquedos</a></li>
+        <li><a href="index.html#quem-somos" class="nav-mobile-link">Quem somos</a></li>
+        <li><a href="index.html#como-funciona" class="nav-mobile-link">Como funciona</a></li>
+        <li><a href="onde-atendemos.html" class="nav-mobile-link active">Onde atendemos</a></li>
+        <li><a href="index.html#contato" class="nav-mobile-link">Contato</a></li>
+      </ul>
+      <div class="nav-mobile-actions">
+        <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-catalogo">
+          Ver catálogo
+        </a>
+        <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-outline">
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Topo -->
+    <section class="section" style="background-color: var(--primary); color: #ffffff; padding: 4.5rem 0;">
+      <div class="container">
+        <h1 style="font-size: 2.75rem; font-family: var(--font-display); font-weight: 800;">Onde atendemos</h1>
+        <p style="margin-top: 0.75rem; color: rgba(255, 255, 255, 0.9); font-size: 1.15rem; max-width: 36rem;">
+          Saímos de São Carlos e levamos os brinquedos para as cidades da região.
+        </p>
+      </div>
+    </section>
+
+    <!-- Seção de Cobertura -->
+    <section class="section">
+      <div class="container onde-grid">
+        <div>
+          <h2 class="section-title">Até onde vamos para deixar a sua festa mais divertida?</h2>
+          <p class="section-desc">
+            Atendemos São Carlos e outras cidades da região. Não existe uma distância máxima fixa: cada evento é analisado individualmente de acordo com disponibilidade, logística e frete.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <span class="badge-yellow" style="font-size: 1.1rem; padding: 0.5rem 1.25rem;">
+              21 cidades atendidas
+            </span>
+          </div>
+
+          <ul class="city-tags-list" id="city-tags-list">
+            <li class="city-tag active" data-slug="sao-carlos">São Carlos (Base)</li>
+            <li class="city-tag" data-slug="ibate">Ibaté</li>
+            <li class="city-tag" data-slug="araraquara">Araraquara</li>
+            <li class="city-tag" data-slug="americo-brasiliense">Américo Brasiliense</li>
+            <li class="city-tag" data-slug="matao">Matão</li>
+            <li class="city-tag" data-slug="rio-claro">Rio Claro</li>
+            <li class="city-tag" data-slug="itirapina">Itirapina</li>
+            <li class="city-tag" data-slug="corumbatai">Corumbataí</li>
+            <li class="city-tag" data-slug="analandia">Analândia</li>
+            <li class="city-tag" data-slug="descalvado">Descalvado</li>
+            <li class="city-tag" data-slug="porto-ferreira">Porto Ferreira</li>
+            <li class="city-tag" data-slug="pirassununga">Pirassununga</li>
+            <li class="city-tag" data-slug="leme">Leme</li>
+            <li class="city-tag" data-slug="dourado">Dourado</li>
+            <li class="city-tag" data-slug="ribeirao-bonito">Ribeirão Bonito</li>
+            <li class="city-tag" data-slug="boa-esperanca-do-sul">Boa Esperança do Sul</li>
+            <li class="city-tag" data-slug="jau">Jaú</li>
+            <li class="city-tag" data-slug="ibitinga">Ibitinga</li>
+            <li class="city-tag" data-slug="cravinhos">Cravinhos</li>
+            <li class="city-tag" data-slug="uberaba">Uberaba</li>
+            <li class="city-tag" data-slug="uberlandia">Uberlândia</li>
+          </ul>
+
+          <p style="margin-top: 1.25rem; font-size: 0.85rem; color: #64748b;">
+            O atendimento depende de disponibilidade e das condições de cada evento.
+          </p>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-outline">
+              Não encontrou sua cidade? Fale com a gente
+            </a>
+          </div>
+        </div>
+
+        <div class="map-wrapper">
+          <div id="mapa-interativo" aria-label="Mapa das cidades atendidas"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ações Finais -->
+    <section class="section section-secondary">
+      <div class="container" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-catalogo">
+          Ver catálogo e fazer orçamento
+        </a>
+        <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-outline">
+          Falar com a Família VW Brinquedos
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/logo-familia-vw.png" alt="Família VW Brinquedos" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+        <p style="margin-top: 1rem; max-width: 24rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85);">
+          Família VW Brinquedos — Brinquedos para festas e eventos em São Carlos e região.
+        </p>
+        <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="footer-phone">
+          (16) 99270-4170
+        </a>
+      </div>
+      <div class="footer-characters">
+        <img src="assets/personagens-familia-vw.png" alt="Personagens da Família VW Brinquedos">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © <span id="ano-atual">2026</span> Família VW Brinquedos · São Carlos (SP)
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Falar no WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("ano-atual").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

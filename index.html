@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-language" content="pt-BR">
+  <title>Família VW Brinquedos | Locação de brinquedos em São Carlos e região</title>
+  <meta name="description" content="Locação de brinquedos para festas e eventos em São Carlos e região. Mais de 14 anos de experiência, brinquedos higienizados, laudo técnico e ART.">
+  <meta name="author" content="Família VW Brinquedos">
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:site_name" content="Família VW Brinquedos">
+  <meta property="og:title" content="Família VW Brinquedos | Brinquedos para festas e eventos">
+  <meta property="og:description" content="Há mais de 14 anos levando diversão para festas e eventos em São Carlos e região.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/familia-vw-evento.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Fontes Google (Baloo 2 e DM Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet Map CSS (OpenStreetMap leve e gratuito) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       Cabeçalho / Header Fixo com Desfoque
+       ====================================================================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html#inicio" class="logo-link">
+        <img src="assets/logo-familia-vw.png" alt="Família VW Brinquedos" class="logo-img">
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="index.html#inicio" class="nav-link active">Início</a>
+        <a href="index.html#brinquedos" class="nav-link">Brinquedos</a>
+        <a href="index.html#quem-somos" class="nav-link">Quem somos</a>
+        <a href="index.html#como-funciona" class="nav-link">Como funciona</a>
+        <a href="index.html#onde-atendemos" class="nav-link">Onde atendemos</a>
+        <a href="index.html#contato" class="nav-link">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-catalogo btn-sm" style="display: none;">
+          Ver catálogo
+        </a>
+        <button type="button" id="btn-menu-mobile" class="btn-menu-mobile" aria-label="Abrir menu" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" x2="20" y1="12" y2="12"></line>
+            <line x1="4" x2="20" y1="6" y2="6"></line>
+            <line x1="4" x2="20" y1="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Ticker / Faixa Promocional Contínua -->
+    <div class="ticker-banner">
+      <div class="ticker-track">
+        <span class="ticker-item">Nossa família levando alegria para a sua!</span>
+        <span class="ticker-item">Nossa família levando alegria para a sua!</span>
+        <span class="ticker-item">Nossa família levando alegria para a sua!</span>
+        <span class="ticker-item">Nossa família levando alegria para a sua!</span>
+        <span class="ticker-item">Nossa família levando alegria para a sua!</span>
+        <span class="ticker-item">Nossa família levando alegria para a sua!</span>
+      </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <nav id="nav-mobile" class="nav-mobile">
+      <ul class="nav-mobile-list">
+        <li><a href="index.html#inicio" class="nav-mobile-link">Início</a></li>
+        <li><a href="index.html#brinquedos" class="nav-mobile-link">Brinquedos</a></li>
+        <li><a href="index.html#quem-somos" class="nav-mobile-link">Quem somos</a></li>
+        <li><a href="index.html#como-funciona" class="nav-mobile-link">Como funciona</a></li>
+        <li><a href="index.html#onde-atendemos" class="nav-mobile-link">Onde atendemos</a></li>
+        <li><a href="index.html#contato" class="nav-mobile-link">Contato</a></li>
+      </ul>
+      <div class="nav-mobile-actions">
+        <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-catalogo">
+          Ver catálogo
+        </a>
+        <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-outline">
+          Falar pelo WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         1. Seção Hero
+         ====================================================================== -->
+    <section id="inicio" class="hero-section">
+      <img src="assets/familia-vw-evento.jpg" alt="Brinquedos infláveis da Família VW montados em evento" class="hero-bg-img">
+      <div class="container hero-content">
+        <div>
+          <span class="badge-yellow">São Carlos e região</span>
+          <h1 class="hero-title">Nossa família levando alegria para a sua!</h1>
+          <p class="hero-subtitle">
+            Há mais de 14 anos levando diversão para festas e eventos em São Carlos e região.
+          </p>
+          <div class="hero-buttons">
+            <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-catalogo">
+              Ver brinquedos e fazer orçamento
+            </a>
+            <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-light">
+              Falar pelo WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="hero-logo-box">
+          <img src="assets/logo-familia-vw.png" alt="Logo Família VW" class="hero-logo-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. Seção de Estatísticas / Números
+         ====================================================================== -->
+    <section class="numbers-section">
+      <div class="container numbers-grid">
+        <div>
+          <div class="number-stat">+14</div>
+          <div class="number-label">anos de experiência</div>
+        </div>
+        <div>
+          <div class="number-stat">+5 mil</div>
+          <div class="number-label">eventos atendidos</div>
+        </div>
+        <div>
+          <div class="number-stat">30</div>
+          <div class="number-label">brinquedos no catálogo</div>
+        </div>
+        <div>
+          <div class="number-stat">21</div>
+          <div class="number-label">cidades atendidas</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. Segurança e Diferenciais (Com FlipCard ART)
+         ====================================================================== -->
+    <section id="seguranca" class="section">
+      <div class="container">
+        <h2 class="section-title">Diversão com estrutura para você ficar tranquilo</h2>
+        <div class="diferenciais-grid">
+          <!-- Card 1: Higienizados -->
+          <div class="card-diferencial">
+            <div class="card-icon-wrap">
+              <!-- Spray Icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3h.01"/><path d="M7 5h.01"/><path d="M11 7h.01"/><path d="M3 7h.01"/><path d="M7 9h.01"/><path d="M3 11h.01"/>
+                <rect width="4" height="4" x="15" y="5"/><path d="m19 9 2 2v10H13V11l2-2"/><path d="m13 14 8-2"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Brinquedos higienizados</h3>
+            <p class="card-text">Higienização realizada antes e depois de cada evento.</p>
+          </div>
+
+          <!-- Card 2: 3D FlipCard Laudo técnico e ART -->
+          <div class="flip-card flip-art" tabindex="0" role="button" aria-label="Virar card para ver definição de ART">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div class="card-icon-wrap">
+                  <!-- Documento Icon -->
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                    <path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/>
+                  </svg>
+                </div>
+                <h3 class="card-title">Laudo técnico e ART</h3>
+                <p class="card-text">Todos os brinquedos possuem laudo técnico e ART.</p>
+                <span style="margin-top:auto; font-size: 0.75rem; color: #004aad; font-weight:700;">(Toque ou passe o mouse para ver)</span>
+              </div>
+              <div class="flip-card-back">
+                <h3 style="font-size: 1.5rem; color: var(--primary); font-family: var(--font-display);">ART</h3>
+                <p style="font-size: 0.85rem; color: #475569; margin-top: 0.5rem; line-height: 1.45;">
+                  A Anotação de Responsabilidade Técnica (ART) identifica o profissional habilitado responsável tecnicamente pelo serviço ou equipamento, garantindo que os aspectos técnicos sejam acompanhados por um profissional registrado.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Montagem profissional -->
+          <div class="card-diferencial">
+            <div class="card-icon-wrap">
+              <!-- Wrench Icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Montagem profissional</h3>
+            <p class="card-text">Nossa equipe avalia o espaço e realiza a montagem adequada para cada evento.</p>
+          </div>
+
+          <!-- Card 4: Monitores capacitados -->
+          <div class="card-diferencial">
+            <div class="card-icon-wrap">
+              <!-- Users Icon -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="card-title">Monitores capacitados</h3>
+            <p class="card-text">Equipe treinada para acompanhar as crianças de acordo com o tipo de evento.</p>
+          </div>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.875rem; color: #64748b;">
+          Materiais de alta qualidade · montagem e desmontagem inclusas · atendimento pontual · inspeção e manutenção periódicas.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. Catálogo & Galeria Automática de Fotos
+         ====================================================================== -->
+    <section id="brinquedos" class="section section-secondary">
+      <div class="container">
+        <h2 class="section-title" style="text-align: center;">Qual vai fazer sucesso na sua festa?</h2>
+
+        <!-- Carrossel de Fotos Controlável -->
+        <div class="carousel-container" role="region" aria-roledescription="carrossel" aria-label="Fotos dos brinquedos">
+          <div class="carousel-view" id="carousel-view">
+            <img src="assets/galeria-01.jpg" alt="Brinquedo recreativo 1" class="carousel-slide active">
+            <img src="assets/galeria-02.jpg" alt="Brinquedo recreativo 2" class="carousel-slide">
+            <img src="assets/galeria-03.jpg" alt="Brinquedo recreativo 3" class="carousel-slide">
+            <img src="assets/galeria-04.jpg" alt="Brinquedo recreativo 4" class="carousel-slide">
+            <img src="assets/galeria-05.jpg" alt="Brinquedo recreativo 5" class="carousel-slide">
+            <img src="assets/galeria-06.jpg" alt="Brinquedo recreativo 6" class="carousel-slide">
+            <img src="assets/galeria-07.jpg" alt="Brinquedo recreativo 7" class="carousel-slide">
+            <img src="assets/galeria-08.jpg" alt="Brinquedo recreativo 8" class="carousel-slide">
+            <img src="assets/galeria-09.jpg" alt="Brinquedo recreativo 9" class="carousel-slide">
+            <img src="assets/galeria-10.jpg" alt="Brinquedo recreativo 10" class="carousel-slide">
+
+            <button type="button" class="carousel-arrow prev" id="carousel-prev" aria-label="Foto anterior">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+            </button>
+            <button type="button" class="carousel-arrow next" id="carousel-next" aria-label="Próxima foto">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Controles do Carrossel -->
+          <div class="carousel-controls">
+            <button type="button" class="btn-carousel-play" id="carousel-play" title="Pausar troca automática" aria-label="Pausar troca automática">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="4" width="4" height="16"/>
+                <rect x="14" y="4" width="4" height="16"/>
+              </svg>
+            </button>
+
+            <div class="carousel-dots">
+              <button type="button" class="dot-btn active" data-index="0" aria-label="Ver foto 1"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="1" aria-label="Ver foto 2"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="2" aria-label="Ver foto 3"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="3" aria-label="Ver foto 4"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="4" aria-label="Ver foto 5"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="5" aria-label="Ver foto 6"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="6" aria-label="Ver foto 7"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="7" aria-label="Ver foto 8"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="8" aria-label="Ver foto 9"><span class="dot-pill"></span></button>
+              <button type="button" class="dot-btn" data-index="9" aria-label="Ver foto 10"><span class="dot-pill"></span></button>
+            </div>
+          </div>
+        </div>
+
+        <div style="max-width: 48rem; margin: 3rem auto 0; text-align: center;">
+          <h3 style="font-size: 1.75rem; color: var(--primary);">Quem trouxe a aventura para a região?</h3>
+          <p style="margin-top: 0.75rem; color: #334155; line-height: 1.7;">
+            A Família VW Brinquedos foi pioneira na locação de brinquedos radicais na região, trazendo atrações como a tirolesa e a carreta brinquedão para deixar as festas ainda mais divertidas.
+          </p>
+          <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-catalogo">
+              Ver catálogo completo
+            </a>
+            <a href="brinquedos.html" class="btn btn-whatsapp-outline">
+              Explorar lista de brinquedos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. Como Escolher o Brinquedo Ideal
+         ====================================================================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Não sabe qual brinquedo escolher?</h2>
+        <p class="section-desc">A gente ajuda. A escolha depende da idade das crianças, do espaço disponível e do tipo de evento.</p>
+        <div class="diferenciais-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+          <div style="background-color: var(--accent-cyan-light); border-radius: var(--radius-2xl); padding: 1.75rem;">
+            <!-- Baby Icon -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#004aad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12h.01"/><path d="M15 12h.01"/><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"/>
+              <path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"/>
+            </svg>
+            <h3 class="card-title">Qual a idade das crianças?</h3>
+            <p class="card-text">Encontre opções adequadas para diferentes faixas etárias.</p>
+          </div>
+
+          <div style="background-color: var(--accent-cyan-light); border-radius: var(--radius-2xl); padding: 1.75rem;">
+            <!-- Ruler Icon -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#004aad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/>
+              <path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/>
+            </svg>
+            <h3 class="card-title">Quanto espaço você tem?</h3>
+            <p class="card-text">Antes da montagem, nossa equipe avalia o local para garantir que o brinquedo seja adequado.</p>
+          </div>
+
+          <div style="background-color: var(--accent-cyan-light); border-radius: var(--radius-2xl); padding: 1.75rem;">
+            <!-- Calendar Icon -->
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#004aad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/>
+            </svg>
+            <h3 class="card-title">Que tipo de evento você está organizando?</h3>
+            <p class="card-text">As condições podem variar para festas particulares, escolas, empresas e eventos abertos.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: var(--primary); color: #fff;">
+            Precisa de ajuda? Fale com a Família VW Brinquedos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. Quem Somos (História & Apresentação)
+         ====================================================================== -->
+    <section id="quem-somos" class="section" style="background-color: var(--primary); color: #ffffff;">
+      <div class="container quem-somos-grid">
+        <div class="quem-somos-img-wrap">
+          <img src="assets/apresentacao-familia-vw.jpg" alt="Vanessa e Wagner da Família VW Brinquedos">
+        </div>
+        <div>
+          <h2 class="section-title" style="color: #ffffff;">Há mais de 14 anos, fazendo a diversão acontecer</h2>
+          <p style="margin-top: 1.25rem; color: rgba(255, 255, 255, 0.9); line-height: 1.75;">
+            A Família VW Brinquedos é especializada na locação de brinquedos recreativos para festas infantis, eventos escolares, corporativos e comemorações em geral. Com mais de 14 anos de atuação, a empresa se destaca pela experiência, organização, atendimento e estrutura diferenciada. Foi pioneira na região com brinquedos radicais, como a tirolesa, e com a carreta brinquedão, sempre com foco em oferecer diversão com segurança, brinquedos higienizados e uma equipe preparada para cada evento.
+          </p>
+          <a href="index.html#brinquedos" class="btn btn-yellow" style="margin-top: 1.75rem;">
+            Conheça nossos brinquedos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. Tipos de Eventos (4 3D FlipCards com Fotos nos Versos)
+         ====================================================================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Um brinquedo, diferentes possibilidades.</h2>
+        <div class="diferenciais-grid">
+          <!-- Card 1: Festas Particulares -->
+          <div class="flip-card flip-event" tabindex="0" role="button" aria-label="Virar card de Festas particulares">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffde59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"/><path d="M2 21h20"/><path d="M7 8v2"/><path d="M12 8v2"/><path d="M17 8v2"/><path d="M7 4h.01"/><path d="M12 4h.01"/><path d="M17 4h.01"/>
+                </svg>
+                <h3 class="card-title">Festas particulares</h3>
+                <p class="card-text">Brinquedos para aniversários e comemorações.</p>
+                <span style="margin-top:auto; font-size:0.75rem; color:#ffde59;">(Toque para ver a foto)</span>
+              </div>
+              <div class="flip-card-back">
+                <img src="assets/evento-festas-particulares.jpg" alt="Brinquedos em festa particular">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Eventos Escolares -->
+          <div class="flip-card flip-event" tabindex="0" role="button" aria-label="Virar card de Eventos escolares">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffde59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 22v-4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/>
+                </svg>
+                <h3 class="card-title">Eventos escolares</h3>
+                <p class="card-text">Opções recreativas para escolas e atividades especiais.</p>
+                <span style="margin-top:auto; font-size:0.75rem; color:#ffde59;">(Toque para ver a foto)</span>
+              </div>
+              <div class="flip-card-back">
+                <img src="assets/evento-escolar.jpg" alt="Brinquedos em evento escolar">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Eventos Corporativos -->
+          <div class="flip-card flip-event" tabindex="0" role="button" aria-label="Virar card de Eventos corporativos">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffde59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+                </svg>
+                <h3 class="card-title">Eventos corporativos</h3>
+                <p class="card-text">Estrutura de diversão para eventos que também recebem crianças.</p>
+                <span style="margin-top:auto; font-size:0.75rem; color:#ffde59;">(Toque para ver a foto)</span>
+              </div>
+              <div class="flip-card-back">
+                <img src="assets/evento-corporativo.jpg" alt="Brinquedos em evento corporativo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Eventos Abertos -->
+          <div class="flip-card flip-event" tabindex="0" role="button" aria-label="Virar card de Eventos abertos">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffde59" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38e-2c-.8 0-1.48.57-1.6 1.36-.37 2.33-2.67 3.86-5.02 3.34l-1.3-.29"/>
+                </svg>
+                <h3 class="card-title">Eventos abertos</h3>
+                <p class="card-text">Brinquedos para eventos com público maior e circulação de pessoas.</p>
+                <span style="margin-top:auto; font-size:0.75rem; color:#ffde59;">(Toque para ver a foto)</span>
+              </div>
+              <div class="flip-card-back">
+                <img src="assets/evento-aberto.jpg" alt="Brinquedos em evento aberto">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. Como Funciona (Passo a Passo)
+         ====================================================================== -->
+    <section id="como-funciona" class="section section-secondary">
+      <div class="container" style="max-width: 52rem;">
+        <h2 class="section-title">Do primeiro clique à festa pronta.</h2>
+        <ol class="timeline-list">
+          <li class="timeline-item">
+            <span class="timeline-number">1</span>
+            <h3 class="card-title" style="margin-top:0;">Escolha seus brinquedos</h3>
+            <p class="card-text">Conheça as opções no site e acesse nosso catálogo oficial.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-number">2</span>
+            <h3 class="card-title" style="margin-top:0;">Informe os dados da festa</h3>
+            <p class="card-text">Data, horário, endereço, tipo de evento e brinquedos escolhidos.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-number">3</span>
+            <h3 class="card-title" style="margin-top:0;">Verificamos a disponibilidade</h3>
+            <p class="card-text">Nossa equipe analisa a data, horário e as condições necessárias para o evento.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b;">
+              Eventos abertos ao público e festas com mais de 4 horas possuem condições diferenciadas.
+            </p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-number">4</span>
+            <h3 class="card-title" style="margin-top:0;">Receba o contrato</h3>
+            <p class="card-text">Após a confirmação, enviamos o contrato e as informações para pagamento.</p>
+          </li>
+          <li class="timeline-item">
+            <span class="timeline-number">5</span>
+            <h3 class="card-title" style="margin-top:0;">Nós cuidamos da montagem</h3>
+            <p class="card-text">A equipe chega com antecedência adequada para preparar os brinquedos e realizar a montagem.</p>
+          </li>
+        </ol>
+        <p style="margin-top: 2rem; font-size: 0.875rem; color: #64748b;">
+          O horário de montagem varia conforme a quantidade de brinquedos, a programação e as características de cada evento.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. Onde Atendemos (Cidades + Mapa Interativo com Geolocalização)
+         ====================================================================== -->
+    <section id="onde-atendemos" class="section">
+      <div class="container onde-grid">
+        <div>
+          <h2 class="section-title">Até onde vamos para deixar a sua festa mais divertida?</h2>
+          <p class="section-desc">
+            Atendemos São Carlos e outras cidades da região. Não existe uma distância máxima fixa: cada evento é analisado individualmente de acordo com disponibilidade, logística e frete.
+          </p>
+          <div style="margin-top: 1.5rem;">
+            <span class="badge-yellow" style="font-size: 1.1rem; padding: 0.5rem 1.25rem;">
+              21 cidades atendidas
+            </span>
+          </div>
+
+          <ul class="city-tags-list" id="city-tags-list">
+            <li class="city-tag active" data-slug="sao-carlos">São Carlos (Base)</li>
+            <li class="city-tag" data-slug="ibate">Ibaté</li>
+            <li class="city-tag" data-slug="araraquara">Araraquara</li>
+            <li class="city-tag" data-slug="americo-brasiliense">Américo Brasiliense</li>
+            <li class="city-tag" data-slug="matao">Matão</li>
+            <li class="city-tag" data-slug="rio-claro">Rio Claro</li>
+            <li class="city-tag" data-slug="itirapina">Itirapina</li>
+            <li class="city-tag" data-slug="corumbatai">Corumbataí</li>
+            <li class="city-tag" data-slug="analandia">Analândia</li>
+            <li class="city-tag" data-slug="descalvado">Descalvado</li>
+            <li class="city-tag" data-slug="porto-ferreira">Porto Ferreira</li>
+            <li class="city-tag" data-slug="pirassununga">Pirassununga</li>
+            <li class="city-tag" data-slug="leme">Leme</li>
+            <li class="city-tag" data-slug="dourado">Dourado</li>
+            <li class="city-tag" data-slug="ribeirao-bonito">Ribeirão Bonito</li>
+            <li class="city-tag" data-slug="boa-esperanca-do-sul">Boa Esperança do Sul</li>
+            <li class="city-tag" data-slug="jau">Jaú</li>
+            <li class="city-tag" data-slug="ibitinga">Ibitinga</li>
+            <li class="city-tag" data-slug="cravinhos">Cravinhos</li>
+            <li class="city-tag" data-slug="uberaba">Uberaba</li>
+            <li class="city-tag" data-slug="uberlandia">Uberlândia</li>
+          </ul>
+
+          <p style="margin-top: 1.25rem; font-size: 0.85rem; color: #64748b;">
+            O atendimento depende de disponibilidade e das condições de cada evento.
+          </p>
+
+          <div style="margin-top: 1.5rem;">
+            <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-outline">
+              Não encontrou sua cidade? Fale com a gente
+            </a>
+          </div>
+        </div>
+
+        <!-- Mapa Interativo OpenStreetMap / Leaflet -->
+        <div class="map-wrapper">
+          <div id="mapa-interativo" aria-label="Mapa das cidades atendidas"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. CTA Final (Vermelho com Textura de Raios)
+         ====================================================================== -->
+    <section id="contato" class="cta-final">
+      <img src="assets/raios-vermelhos.jpg" alt="" class="cta-final-bg" aria-hidden="true">
+      <div class="container cta-final-content">
+        <h2 style="font-size: 2.25rem; font-family: var(--font-display); font-weight: 800;">
+          Já escolheu o brinquedo para sua festa?
+        </h2>
+        <p style="margin-top: 1rem; font-size: 1.1rem; color: rgba(255, 255, 255, 0.9);">
+          Acesse nosso catálogo oficial, escolha suas opções e faça seu orçamento.
+        </p>
+        <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://familia-vw-brinquedos.estoquenow.site/" target="_blank" rel="noopener noreferrer" class="btn btn-yellow" style="box-shadow: var(--shadow-brand);">
+            Ver catálogo e fazer orçamento
+          </a>
+          <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp-light">
+            Falar pelo WhatsApp (16) 99270-4170
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       Rodapé / Footer
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/logo-familia-vw.png" alt="Família VW Brinquedos" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+        <p style="margin-top: 1rem; max-width: 24rem; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85);">
+          Família VW Brinquedos — Brinquedos para festas e eventos em São Carlos e região.
+        </p>
+        <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="footer-phone">
+          (16) 99270-4170
+        </a>
+        <div>
+          <a href="https://www.instagram.com/familiavwbrinquedos/" target="_blank" rel="noopener noreferrer" class="btn-social" aria-label="Instagram da Família VW">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-characters">
+        <img src="assets/personagens-familia-vw.png" alt="Personagens da Família VW Brinquedos">
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        © <span id="ano-atual">2026</span> Família VW Brinquedos · São Carlos (SP)
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       Botão Flutuante do WhatsApp (FAB)
+       ====================================================================== -->
+  <a href="https://wa.me/5516992704170" target="_blank" rel="noopener noreferrer" class="whatsapp-fab" aria-label="Falar com a Família VW Brinquedos no WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("ano-atual").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1203 @@
+/* ==========================================================================
+   Família VW Brinquedos - Design System & Estilos
+   Tecnologias: HTML5, CSS3 Moderno, Vanilla JS (Sem frameworks pesados)
+   ========================================================================== */
+
+:root {
+  --font-display: "Baloo 2", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Cores principais */
+  --primary: #004aad;
+  --primary-dark: #003680;
+  --primary-light: #1a62c7;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f4f6fa;
+  --secondary-foreground: #004aad;
+
+  --accent-yellow: #ffde59;
+  --accent-yellow-hover: #f3d043;
+  --accent-red: #e43232;
+  --accent-red-hover: #c92424;
+  --accent-cyan: #5ce1e6;
+  --accent-cyan-light: rgba(92, 225, 230, 0.18);
+  --accent-cyan-border: rgba(92, 225, 230, 0.4);
+
+  --whatsapp: #25d366;
+  --whatsapp-hover: #20ba59;
+
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --foreground-muted: #64748b;
+  --border: #e2e8f0;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 4px 20px -6px rgba(0, 74, 173, 0.15);
+  --shadow-brand: 0 10px 25px -8px rgba(0, 74, 173, 0.35);
+  --shadow-event-card: 0 10px 0 #003075, 0 18px 28px -12px rgba(0, 74, 173, 0.5), inset 0 2px 3px rgba(255, 255, 255, 0.6), inset 0 -18px 28px rgba(0, 0, 0, 0.15);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Reset Básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* ==========================================================================
+   Header e Navegação
+   ========================================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  gap: 1.5rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  transition: color 0.2s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-menu-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  color: var(--primary);
+  transition: background-color 0.2s ease;
+}
+
+.btn-menu-mobile:hover {
+  background-color: var(--secondary);
+}
+
+.nav-mobile {
+  display: none;
+  border-top: 1px solid var(--border);
+  background-color: #ffffff;
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+.nav-mobile.open {
+  display: block;
+}
+
+.nav-mobile-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.nav-mobile-link {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #334155;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.nav-mobile-link:hover,
+.nav-mobile-link.active {
+  color: var(--primary);
+}
+
+.nav-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Faixa Promocional / Marquee */
+.ticker-banner {
+  background-color: var(--accent-yellow);
+  color: var(--primary);
+  overflow: hidden;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-anim 18s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding-right: 2.5rem;
+}
+
+@keyframes ticker-anim {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   Botões e Badges
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  border: 2px solid transparent;
+}
+
+.btn-sm {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.btn-catalogo {
+  background-color: var(--accent-red);
+  color: #ffffff;
+  box-shadow: var(--shadow-brand);
+}
+
+.btn-catalogo:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp-outline {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+.btn-whatsapp-outline:hover {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.btn-whatsapp-light {
+  background-color: #ffffff;
+  color: var(--primary);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-whatsapp-light:hover {
+  background-color: var(--accent-yellow);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-yellow {
+  background-color: var(--accent-yellow);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.btn-yellow:hover {
+  background-color: #ffffff;
+  color: var(--primary);
+}
+
+.badge-yellow {
+  display: inline-block;
+  background-color: var(--accent-yellow);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+}
+
+.badge-red {
+  display: inline-block;
+  background-color: var(--accent-red);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 5rem 0;
+  overflow: hidden;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.42;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 36rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero-logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-logo-img {
+  max-width: 320px;
+  width: 100%;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+}
+
+/* ==========================================================================
+   Seção de Números
+   ========================================================================== */
+
+.numbers-section {
+  background-color: var(--accent-cyan-light);
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--accent-cyan-border);
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.number-stat {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.number-label {
+  font-size: 0.875rem;
+  color: #475569;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Seção de Diferenciais & 3D FlipCards
+   ========================================================================== */
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-secondary {
+  background-color: var(--secondary);
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.section-desc {
+  color: #475569;
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.diferenciais-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.card-diferencial {
+  min-height: 18rem;
+  border: 4px solid var(--accent-yellow);
+  background-color: #ffffff;
+  border-radius: var(--radius-2xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background-color: var(--accent-yellow);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 1rem;
+}
+
+.card-text {
+  font-size: 0.925rem;
+  color: #475569;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* 3D FlipCard Component */
+.flip-card {
+  perspective: 1000px;
+  min-height: 18rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 18rem;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  border-radius: var(--radius-2xl);
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.is-flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.flip-card-front {
+  padding: 1.75rem;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Variantes do FlipCard */
+.flip-art .flip-card-front {
+  border: 4px solid var(--accent-yellow);
+  background-color: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+
+.flip-art .flip-card-back {
+  border: 4px solid var(--accent-yellow);
+  background-color: rgba(92, 225, 230, 0.3);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.flip-event .flip-card-front {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-event-card);
+}
+
+.flip-event .flip-card-front .card-title {
+  color: #ffffff;
+}
+
+.flip-event .flip-card-front .card-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.flip-event .flip-card-back {
+  background-color: var(--primary);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-event-card);
+}
+
+.flip-event .flip-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+/* ==========================================================================
+   Galeria de Brinquedos (Carrossel Interativo)
+   ========================================================================== */
+
+.carousel-container {
+  width: 100%;
+  max-width: 980px;
+  margin: 2rem auto 0;
+}
+
+.carousel-view {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  border: 4px solid var(--accent-cyan);
+  background-color: var(--primary);
+  cursor: pointer;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-brand);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.carousel-arrow:hover {
+  background-color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.carousel-arrow.prev { left: 1rem; }
+.carousel-arrow.next { right: 1rem; }
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-carousel-play {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-carousel-play:hover {
+  background-color: var(--secondary);
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dot-btn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+}
+
+.dot-pill {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: rgba(0, 74, 173, 0.25);
+  transition: all 0.2s ease;
+}
+
+.dot-btn.active .dot-pill {
+  background-color: var(--primary);
+  transform: scale(1.3);
+}
+
+/* ==========================================================================
+   Seção Quem Somos
+   ========================================================================== */
+
+.quem-somos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.quem-somos-img-wrap {
+  border-radius: var(--radius-2xl);
+  border: 4px solid var(--accent-red);
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.quem-somos-img-wrap img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Timeline / Como Funciona
+   ========================================================================== */
+
+.timeline-list {
+  list-style: none;
+  border-left: 3px solid var(--accent-cyan);
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-number {
+  position: absolute;
+  left: calc(-2rem - 17px);
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: var(--primary);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Onde Atendemos & Mapa
+   ========================================================================== */
+
+.onde-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.city-tags-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.city-tag {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.875rem;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: #334155;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.city-tag:hover {
+  background-color: var(--accent-cyan-light);
+  color: var(--primary);
+}
+
+.city-tag.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.map-wrapper {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  border-radius: var(--radius-2xl);
+  border: 4px solid var(--accent-yellow);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+#mapa-interativo {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   CTA Final (Vermelho com Raios)
+   ========================================================================== */
+
+.cta-final {
+  position: relative;
+  background-color: var(--accent-red);
+  color: #ffffff;
+  padding: 5rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.cta-final-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.cta-final-content {
+  position: relative;
+  z-index: 2;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.footer {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding-top: 4rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+.footer-phone {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-yellow);
+  margin-top: 1rem;
+}
+
+.btn-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn-social:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-characters {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.footer-characters img {
+  max-height: 280px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1.25rem 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   WhatsApp FAB Flutuante
+   ========================================================================== */
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  width: 58px;
+  height: 58px;
+  border-radius: var(--radius-full);
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.whatsapp-fab:hover {
+  background-color: var(--whatsapp-hover);
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+}
+
+/* ==========================================================================
+   Página de Brinquedos e Cards do Catálogo
+   ========================================================================== */
+
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-filter {
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: var(--primary);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-filter.active {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.brinquedos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+.toy-card {
+  border: 1px solid var(--border);
+  background-color: #ffffff;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.toy-card:hover {
+  box-shadow: var(--shadow-brand);
+  transform: translateY(-4px);
+}
+
+.toy-card-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--secondary);
+}
+
+.toy-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.toy-card:hover .toy-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.toy-card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: var(--accent-yellow);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.toy-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.toy-card-body h3 {
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.toy-card-body p {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-top: 0.4rem;
+  flex-grow: 1;
+}
+
+/* Modal de Detalhes do Brinquedo */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: var(--radius-2xl);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modal-enter 0.25s ease-out;
+}
+
+@keyframes modal-enter {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #e2e8f0;
+}
+
+.modal-specs-list {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.modal-spec-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-spec-row:last-child {
+  border-bottom: none;
+}
+
+.modal-spec-label {
+  color: var(--foreground-muted);
+}
+
+.modal-spec-val {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   Breakpoints Responsivos
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brinquedos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .carousel-view {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+  }
+
+  .numbers-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex;
+  }
+
+  .btn-menu-mobile {
+    display: none;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr 380px;
+  }
+
+  .diferenciais-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .quem-somos-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .onde-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brinquedos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
