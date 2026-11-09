@@ -46,12 +46,15 @@ giovana-html-css-js/
 ├── index.html            # Página inicial completa (Landing page principal)
 ├── brinquedos.html       # Catálogo de brinquedos com filtros e modal de detalhes
 ├── onde-atendemos.html   # Página dedicada de cobertura e cidades atendidas
+├── CNAME                 # Domínio personalizado (familiavwbrinquedos.com.br) - NUNCA APAGAR
 ├── css/
 │   └── styles.css        # Folha de estilo completa e responsiva (Design System)
 ├── js/
 │   ├── data.js           # Dados do site (telefones, links, cidades, brinquedos)
 │   └── main.js           # Lógica do carrossel, flipcards, menu mobile e mapa
-└── assets/               # Imagens, logotipos, fotos dos brinquedos e favicon
+├── assets/               # Imagens, logotipos, fotos dos brinquedos e favicon
+├── AGENT.md              # Instruções e diretrizes técnicas para IAs assistentes
+└── README.md             # Documentação e guia de manutenção do projeto
 ```
 
 ---
@@ -70,7 +73,79 @@ E acesse no navegador: `http://localhost:8000`
 
 ---
 
-## 🌐 Como Publicar no GitHub Pages (Passo a Passo)
+## 🛠️ Guia de Manutenção (Para Terceiros e Novos Desenvolvedores)
+
+Se você assumiu a manutenção deste site, fique tranquilo: **o projeto é extremamente simples e não exige conhecimentos de Node.js, compilação ou frameworks complexos**. Qualquer pessoa com um editor de texto (VS Code, Sublime Text, Notepad++, etc.) pode fazer alterações.
+
+### 1. Como Alterar Textos e Estrutura nas Páginas HTML
+* **Página Inicial (`index.html`)**: Contém todas as seções principais (banners, depoimentos, fotos, perguntas frequentes e rodapé). Para alterar um texto, abra o arquivo no editor, use `Ctrl + F` para localizar a frase desejada e edite diretamente entre as tags HTML.
+* **Catálogo de Brinquedos (`brinquedos.html`)**: Contém a grade de brinquedos com fotos, nomes e categorias.
+* **Onde Atendemos (`onde-atendemos.html`)**: Contém a lista de municípios atendidos e o contêiner do mapa interativo.
+* **Imagens e Fotos**: Ficam guardadas na pasta `assets/`. Para trocar uma foto existente, adicione a nova imagem em `assets/` e atualize o atributo `src="assets/nome-da-foto.jpg"` no arquivo HTML correspondente.
+
+### 2. Dica Importante: Central de Dados (`js/data.js`)
+Muitas informações cruciais estão centralizadas no arquivo `js/data.js`. É muito mais rápido e seguro alterar lá:
+* **Número do WhatsApp e Link**: Altere as propriedades `WHATSAPP_NUMERO_EXIBICAO` e `WHATSAPP_LINK`.
+* **Instagram e Catálogo Externo**: Altere `INSTAGRAM_URL` e `CATALOGO_URL`.
+* **Estatísticas e Números**: Altere o array `NUMEROS` (anos de experiência, eventos atendidos, etc.).
+* **Lista de Cidades e Brinquedos**: Também estão listadas de forma organizada nesse arquivo.
+
+### 3. Como Alterar o Visual e Cores no CSS (`css/styles.css`)
+O design do site segue um sistema de variáveis centralizadas no topo do arquivo `css/styles.css` (dentro do bloco `:root`):
+```css
+:root {
+  --color-primary-blue: #004aad;  /* Azul principal */
+  --color-yellow: #ffde59;        /* Amarelo de destaque */
+  --color-red: #e43232;           /* Vermelho promocional */
+  --color-cyan: #5ce1e6;          /* Ciano secundário */
+  --color-whatsapp: #25d366;      /* Verde do botão de WhatsApp */
+  --font-heading: 'Baloo 2', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+```
+* **Alterar cores do site**: Basta trocar o código hexadecimal da cor desejada no `:root`. Todo o site mudará automaticamente de forma consistente.
+* **Espaçamentos e fontes**: Também são controlados por variáveis logo no início de `styles.css`.
+* **Ajustes específicos de blocos**: O arquivo está dividido por comentários claros (`/* HEADER */`, `/* HERO */`, `/* CARROSSEL */`, `/* FOOTER */`, etc.).
+
+### 4. Como Testar as Alterações Antes de Publicar
+1. **Opção mais simples:** Salve o arquivo editado e abra `index.html` com duplo clique no navegador.
+2. **Servidor local (recomendado para testar geolocalização do mapa):**
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Acesse no navegador: `http://localhost:8000`.
+
+### 5. Como Publicar as Alterações no Ar (Produção)
+O site está hospedado no **GitHub Pages** e conectado ao domínio oficial registrado no Registro.br: **`familiavwbrinquedos.com.br`**.
+
+A publicação é **100% automatizada**. Você só precisa enviar os arquivos para a branch `main` do GitHub via terminal:
+
+```bash
+# 1. Verifique quais arquivos você alterou
+git status
+
+# 2. Adicione os arquivos alterados
+git add .
+
+# 3. Grave uma mensagem explicativa sobre o que mudou
+git commit -m "Atualização de contatos e texto do banner"
+
+# 4. Envie para o GitHub
+git push origin main
+```
+
+> ⏱️ **Pronto!** Em cerca de **1 a 2 minutos**, o GitHub Pages atualizará os servidores e as alterações estarão disponíveis para todos os visitantes que acessarem `https://familiavwbrinquedos.com.br`.
+
+### 6. Cuidados Críticos
+* ⚠️ **NUNCA delete ou altere o arquivo `CNAME`**: Ele contém `familiavwbrinquedos.com.br` e é o responsável por manter o GitHub Pages conectado ao Registro.br.
+* ⚠️ **Não instale ferramentas de build pesadas**: Mantenha o projeto estático e limpo para facilitar futuras manutenções por qualquer pessoa.
+
+### 7. Vai usar Inteligência Artificial para ajudar na manutenção?
+Se você utilizar ferramentas com IA (como Cursor, Claude Code, GitHub Copilot, ChatGPT ou Antigravity), oriente a IA a ler o arquivo [`AGENT.md`](AGENT.md), que contém as regras técnicas, restrições e convenções de código deste projeto.
+
+---
+
+## 🌐 Configuração Original do GitHub Pages
 
 Como este projeto é 100% estático (HTML, CSS e JS puros), ele é **nativamente compatível com o GitHub Pages** sem precisar de nenhuma configuração de build:
 
